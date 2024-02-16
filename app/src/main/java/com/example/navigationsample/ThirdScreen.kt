@@ -9,19 +9,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ThirdScreen(navigateToFirstScreen:()->Unit){
-    Column(modifier = Modifier.fillMaxSize().padding(8.dp),
+fun ThirdScreen(age: String, navigateToFirstScreen:()->Unit){
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .padding(8.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(text = "Your age is $age years", fontSize = 16.sp)
         Button(onClick = { navigateToFirstScreen() }) {
-            Text(text = "This is the third screen. " +
-                    "Go to first screen.", fontSize = 24.sp, textAlign = TextAlign.Center)
+            Text(text = "Navigate to first screen", fontSize = 16.sp)
         }
     }
 }
@@ -29,5 +32,5 @@ fun ThirdScreen(navigateToFirstScreen:()->Unit){
 @Composable
 @Preview(showBackground = true)
 fun ThirdPreview() {
-    ThirdScreen({})
+    ThirdScreen("0", {})
 }
